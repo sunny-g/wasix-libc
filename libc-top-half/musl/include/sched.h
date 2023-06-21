@@ -81,9 +81,13 @@ int clone (int (*)(void *), void *, int, void *, ...);
 int unshare(int);
 int setns(int, int);
 
+#ifdef __wasilibc_unmodified_upstream /* Use alternate WASI libc headers */
 void *memcpy(void *__restrict, const void *__restrict, size_t);
+#endif
 int memcmp(const void *, const void *, size_t);
+#ifdef __wasilibc_unmodified_upstream /* Use alternate WASI libc headers */
 void *memset (void *, int, size_t);
+#endif
 void *calloc(size_t, size_t);
 void free(void *);
 
