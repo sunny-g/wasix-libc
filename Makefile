@@ -69,7 +69,7 @@ LIBWASI_EMULATED_MMAN_SOURCES = \
 LIBWASI_EMULATED_PROCESS_CLOCKS_SOURCES = \
     $(sort $(shell find $(LIBC_BOTTOM_HALF_DIR)/clocks -name \*.c))
 LIBWASI_EMULATED_GETPID_SOURCES = \
-    $(sort $(shell find $(LIBC_BOTTOM_HALF_DIR)/getpid -name \*.c))
+    $(sort $(shell find $(LIBC_BOTTOM_HALF_DIR)/sources/getpid -name \*.c))
 LIBWASI_EMULATED_SIGNAL_SOURCES = \
     $(sort $(shell find $(LIBC_BOTTOM_HALF_DIR)/signal -name \*.c))
 LIBC_BOTTOM_HALF_CRT_SOURCES = $(wildcard $(LIBC_BOTTOM_HALF_DIR)/crt/*.c)
@@ -518,7 +518,7 @@ wasix-headers:
 
 post-finish: finish
 	rm -f sysroot/lib/wasm32-wasi/libc-printscan-log-double.a
-	rsync -rtvu --delete ./sysroot/ ./sysroot32/
+	# rsync -rtvu --delete ./sysroot/ ./sysroot32/
 
 $(SYSROOT_LIB)/libc.a: $(LIBC_OBJS)
 
