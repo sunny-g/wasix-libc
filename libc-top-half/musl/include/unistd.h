@@ -43,7 +43,9 @@ extern "C" {
 
 int pipe(int [2]);
 int pipe2(int [2], int);
+#ifdef __wasilibc_unmodified_upstream /* Use alternate WASI libc headers */
 int close(int);
+#endif
 int posix_close(int, int);
 
 #define BADEXIT -1
@@ -116,7 +118,9 @@ int ftruncate(int, off_t);
 #endif
 
 int access(const char *, int);
+#ifdef __wasilibc_unmodified_upstream /* Use alternate WASI libc headers */
 int faccessat(int, const char *, int, int);
+#endif
 
 #ifdef __wasilibc_unmodified_upstream /* WASI has no fchdir */
 int fchdir(int);
@@ -217,8 +221,8 @@ unsigned ualarm(unsigned, unsigned);
 #define L_XTND 2
 #ifdef __wasilibc_unmodified_upstream /* WASI has no brk */
 int brk(void *);
-#endif
 void *sbrk(intptr_t);
+#endif
 pid_t vfork(void);
 #ifdef __wasilibc_unmodified_upstream /* WASI has no processes */
 int vhangup(void);

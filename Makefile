@@ -449,9 +449,9 @@ MUSL_OMIT_HEADERS += \
     "stdarg.h" \
     "stddef.h"
 
-# Use the WASI errno definitions.
-MUSL_OMIT_HEADERS += \
-    "bits/errno.h"
+# # Use the WASI errno definitions.
+# MUSL_OMIT_HEADERS += \
+#     "bits/errno.h"
 
 # Remove headers that aren't supported yet or that aren't relevant for WASI.
 MUSL_OMIT_HEADERS += \
